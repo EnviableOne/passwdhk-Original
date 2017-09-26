@@ -465,7 +465,7 @@ namespace passwdhk
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(318, 13);
             this.label13.TabIndex = 3;
-            this.label13.Text = "Configuration of the passwdHk settings.  For more information see:";
+            this.label13.Text = "Configuration of the passwdhk settings.  For more information see:";
             // 
             // linkLabel1
             // 
@@ -560,7 +560,7 @@ namespace passwdhk
             this.Controls.Add(this.groupBox4);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Configuration";
-            this.Text = "passwdHk Configuration Manager";
+            this.Text = "passwdhk Configuration Manager";
             this.Load += new System.EventHandler(this.Configuration_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
