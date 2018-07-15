@@ -251,7 +251,7 @@ namespace passwdhk
             linkLabel1.LinkVisited = true;
             //Call the Process.Start method to open the default browser 
             //with a URL:
-            System.Diagnostics.Process.Start("http://sourceforge.net/projects/passwdhk");
+            System.Diagnostics.Process.Start("https://sf.net/projects/passwdhk");
         }
 
         private void exit_button_Click(object sender, EventArgs e)

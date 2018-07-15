@@ -166,14 +166,31 @@
     <ClInclude Include="logging.h" />
     <ClInclude Include="passwdhk.h" />
     <ClInclude Include="registry.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="util.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="passwd.bat">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
     <None Include="passwdhk.def" />
-    <None Include="passwdhk.reg" />
+    <None Include="passwdhk.reg">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.Txt" />
+    <Text Include="CHANGES.txt">
+      <DeploymentContent>true</DeploymentContent>
+    </Text>
+    <Text Include="LICENSE.txt">
+      <DeploymentContent>true</DeploymentContent>
+    </Text>
+    <Text Include="ReadMe.Txt">
+      <DeploymentContent>true</DeploymentContent>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="passwdhk.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

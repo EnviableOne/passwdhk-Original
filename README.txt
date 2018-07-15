@@ -7,6 +7,7 @@ Modified by:
 Curtis Robinson
 crobinso@fit.edu
 02FEB10
+14JUL18
 
 Modified by:
 Brian Clayton
@@ -18,9 +19,7 @@ Clark University
 
 The programs and source code in this package and supplied by this package is made available under the LGPL license.  Please see LICENSE.txt in this package for more information.
 
-For the latest packages and more information, please see http://acctsync.sourceforge.net/ .
-
-
+For the latest packages and more information, please see https://sf.net/projects/passwdhk/ .
 
 1. Introduction
 2. Security
@@ -28,17 +27,12 @@ For the latest packages and more information, please see http://acctsync.sourcef
 4. Registry values
 5. Upgrading Issues
 
-
-
-
 1. Intro
 ========
 
 PasswdHk is a Windows password filter DLL that facilitates invocation of an external program from Windows password filter events which occur immediately before and immediately after a Windows password change.  A common use for this is to replicate password changes to an external database or directory service.  The batch file "passwd.bat" is included as an example that can be used for testing; it merely writes the username and password to the file "passwd.txt".
 
-Although this filter has been tested on Windows 2000, Windows XP, Windows Server 2003, Windows Server 2008 R2, Windows Server 2012 R2, and Windows 10, care should be taken to make sure that it works in your environment.  Please report software defects at http://sourceforge.net/projects/passwdhk.
-
-
+Although this filter has been tested on Windows 8.1, Windows Server 2003/2008/2008 R2/2012/2012 R2 and Windows 10, care should be taken to make sure that it works in your environment.  Please report software defects at https://sf.net/projects/passwdhk.
 
 2. Security
 ===========
@@ -48,9 +42,9 @@ Password filters run in the security context of the local system account.  Care 
 If the external programs are batch (.bat) files (or launched from batch files), it is strongly recommended that the URL encode password option be used.  Without this a user would be able to run a progam with service priviledges with a carefully crafted password.  This is because the batch files are processed by the command prompt, which gives special functionality to certain characters.  The URL encode option prevents this by encoding all the offending characters.  It is up to the external program to decode the password, but this is often trivial since many programming languages already have routines to perform a URL decode. The following is an example of how to do a URL decode using PERL: $pass =~ s/%([a-fA-F0-9]{2,2})/chr(hex($1))/eg;
 
 
-
-3. Setup
+3. Manual Setup 
 ========
+NOTE: These manual steps already be handled by the MSI installer and the configurator.
 
 (a) Copy "passwdhk.dll" to C:\Windows\system32
 
@@ -58,9 +52,7 @@ If the external programs are batch (.bat) files (or launched from batch files), 
 
 (c) Edit the file "passwdhk.reg" to suit your environment and then import it into the registry by double-clicking that file or use passwdhk-config.exe to configure settings.
 
-(d) Set "Domain Security Policy\Windows Settings\Security Settings\Account Policies\Password Policy\Passwords must meet complexity requirements" to enabled to enable both complexity checking and the password filter.
-
-(e) Reboot.
+(d) Reboot.
 
 
 
@@ -120,4 +112,6 @@ It's important to only supply the interpreter as the "preChangeProg" value becau
 5. Upgrade Issues
 =================
 
-If you are upgrading the PasswdHk package, the DLL must be disabled and the system rebooted before the upgrade.  This is because the Windows LSA ( Local Security Authority ) locks the DLL file until the DLL has been disabled and the system rebooted.  Therefore to overwrite with the newer DLL file, the system has to go through the unlocking step.
+If you are upgrading the PasswdHk package, the DLL must be disabled and the system rebooted before the upgrade.
+This is because the Windows LSA ( Local Security Authority ) locks the DLL file until the DLL has been disabled and the operating system rebooted.
+Therefore to overwrite with the newer DLL file, the operating system needs to release the file lock on the DLL.

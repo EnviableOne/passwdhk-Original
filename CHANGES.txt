@@ -1,3 +1,17 @@
+Changes (14 Jul 2018):
+ - Add version information to DLL and Driver EXE.
+ - Add icon to Configurator.
+ - Add .NET backwards compatibility to Configurator.
+ - Add x64 MSI setup project for easy deployment.
+ - Fix for configurator window size.
+ - Change branding text to match project site.
+ - Update readme.txt.
+ - Add passwd.bat example to project setup MSI.
+ - Update passwdhk-config to .NET 4.7.1
+ - Add require administrator (UAC) access for Configurator to start.
+ - Thanks to Brian Clayton helping this project.
+
+
 Changes (25 Sep 2017):
 
  - Added Visual Studio 2017 Solution/Project files, updated passwdhk-config to .NET 4.6.1
