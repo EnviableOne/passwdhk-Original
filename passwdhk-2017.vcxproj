@@ -90,7 +90,7 @@
       <DataExecutionPrevention />
       <MinimumRequiredVersion />
       <ModuleDefinitionFile>.\passwdhk.def</ModuleDefinitionFile>
-      <AdditionalDependencies>advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>advapi32.lib;kernel32.lib</AdditionalDependencies>
     </Link>
     <Bscmake />
     <ClCompile>
@@ -115,7 +115,7 @@
       <DataExecutionPrevention />
       <MinimumRequiredVersion />
       <ModuleDefinitionFile>.\passwdhk.def</ModuleDefinitionFile>
-      <AdditionalDependencies>advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>advapi32.lib;kernel32.lib</AdditionalDependencies>
     </Link>
     <Bscmake />
     <ClCompile>
@@ -140,7 +140,7 @@
       <DataExecutionPrevention />
       <MinimumRequiredVersion />
       <ModuleDefinitionFile>.\passwdhk.def</ModuleDefinitionFile>
-      <AdditionalDependencies>advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>advapi32.lib;kernel32.lib</AdditionalDependencies>
     </Link>
     <Bscmake />
     <ClCompile>
@@ -165,7 +165,7 @@
       <DataExecutionPrevention />
       <MinimumRequiredVersion />
       <ModuleDefinitionFile>.\passwdhk.def</ModuleDefinitionFile>
-      <AdditionalDependencies>advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>advapi32.lib;kernel32.lib</AdditionalDependencies>
     </Link>
     <Bscmake />
     <ClCompile>
