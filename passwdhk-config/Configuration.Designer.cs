@@ -66,7 +66,7 @@ namespace passwdhk
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.redirect_output_c = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.Project_link = new System.Windows.Forms.LinkLabel();
             this.workdir_button = new System.Windows.Forms.Button();
             this.enable_passwdhk_c = new System.Windows.Forms.CheckBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -91,7 +91,7 @@ namespace passwdhk
             this.apply_button.TabIndex = 0;
             this.apply_button.Text = "Apply";
             this.apply_button.UseVisualStyleBackColor = true;
-            this.apply_button.Click += new System.EventHandler(this.apply_button_Click);
+            this.apply_button.Click += new System.EventHandler(this.Apply_Button_Click);
             // 
             // exit_button
             // 
@@ -103,7 +103,7 @@ namespace passwdhk
             this.exit_button.TabIndex = 2;
             this.exit_button.Text = "Exit";
             this.exit_button.UseVisualStyleBackColor = true;
-            this.exit_button.Click += new System.EventHandler(this.exit_button_Click);
+            this.exit_button.Click += new System.EventHandler(this.Exit_Button_Click);
             // 
             // about_button
             // 
@@ -114,7 +114,7 @@ namespace passwdhk
             this.about_button.TabIndex = 1;
             this.about_button.Text = "About";
             this.about_button.UseVisualStyleBackColor = true;
-            this.about_button.Click += new System.EventHandler(this.about_button_Click);
+            this.about_button.Click += new System.EventHandler(this.About_Button_Click);
             // 
             // prechange_program_t
             // 
@@ -161,7 +161,7 @@ namespace passwdhk
             this.prechange_prog_button.TabIndex = 1;
             this.prechange_prog_button.Text = "Browse...";
             this.prechange_prog_button.UseVisualStyleBackColor = true;
-            this.prechange_prog_button.Click += new System.EventHandler(this.button4_Click);
+            this.prechange_prog_button.Click += new System.EventHandler(this.Prechange_Browse_Click);
             // 
             // prechange_waittime_n
             // 
@@ -236,7 +236,7 @@ namespace passwdhk
             this.postchange_prog_button.TabIndex = 1;
             this.postchange_prog_button.Text = "Browse...";
             this.postchange_prog_button.UseVisualStyleBackColor = true;
-            this.postchange_prog_button.Click += new System.EventHandler(this.button5_Click);
+            this.postchange_prog_button.Click += new System.EventHandler(this.Postchange_Browse_Click);
             // 
             // postchange_waittime_n
             // 
@@ -329,7 +329,7 @@ namespace passwdhk
             this.logging_filename_button.TabIndex = 1;
             this.logging_filename_button.Text = "Browse...";
             this.logging_filename_button.UseVisualStyleBackColor = true;
-            this.logging_filename_button.Click += new System.EventHandler(this.button1_Click);
+            this.logging_filename_button.Click += new System.EventHandler(this.Logging_Browse_Click);
             // 
             // log_level_n
             // 
@@ -508,17 +508,17 @@ namespace passwdhk
             this.label13.TabIndex = 3;
             this.label13.Text = "Configuration of the passwdHk settings.  For more information see:";
             // 
-            // linkLabel1
+            // Project_link
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(888, 21);
-            this.linkLabel1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(421, 32);
-            this.linkLabel1.TabIndex = 3;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "https://sf.net/projects/passwdhk/";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.Project_link.AutoSize = true;
+            this.Project_link.Location = new System.Drawing.Point(888, 21);
+            this.Project_link.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.Project_link.Name = "Project_link";
+            this.Project_link.Size = new System.Drawing.Size(421, 32);
+            this.Project_link.TabIndex = 3;
+            this.Project_link.TabStop = true;
+            this.Project_link.Text = "https://sf.net/projects/passwdhk/";
+            this.Project_link.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Project_LinkClicked);
             // 
             // workdir_button
             // 
@@ -529,7 +529,7 @@ namespace passwdhk
             this.workdir_button.TabIndex = 13;
             this.workdir_button.Text = "Browse...";
             this.workdir_button.UseVisualStyleBackColor = true;
-            this.workdir_button.Click += new System.EventHandler(this.button6_Click);
+            this.workdir_button.Click += new System.EventHandler(this.Workdir_Browse_Click);
             // 
             // enable_passwdhk_c
             // 
@@ -577,7 +577,7 @@ namespace passwdhk
             this.cancel_button.TabIndex = 17;
             this.cancel_button.Text = "Cancel";
             this.cancel_button.UseVisualStyleBackColor = true;
-            this.cancel_button.Click += new System.EventHandler(this.cancel_button_Click);
+            this.cancel_button.Click += new System.EventHandler(this.Cancel_Button_Click);
             // 
             // Configuration
             // 
@@ -592,7 +592,7 @@ namespace passwdhk
             this.Controls.Add(this.label14);
             this.Controls.Add(this.enable_passwdhk_c);
             this.Controls.Add(this.workdir_button);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.Project_link);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.redirect_output_c);
             this.Controls.Add(this.label12);
@@ -665,7 +665,7 @@ namespace passwdhk
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.CheckBox redirect_output_c;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel Project_link;
         private System.Windows.Forms.Button prechange_prog_button;
         private System.Windows.Forms.Button postchange_prog_button;
         private System.Windows.Forms.Button workdir_button;

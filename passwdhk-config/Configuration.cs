@@ -186,14 +186,16 @@ namespace passwdhk
             LoadFromRegistry();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Prechange_Browse_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.InitialDirectory = "c:\\";
+            OpenFileDialog openFileDialog1 = new OpenFileDialog
+            {
+                InitialDirectory = "c:\\",
 
-            openFileDialog1.Filter = "All files (*.*)|*.*";
-            openFileDialog1.FilterIndex = 2;
-            openFileDialog1.RestoreDirectory = true;
+                Filter = "All files (*.*)|*.*",
+                FilterIndex = 2,
+                RestoreDirectory = true
+            };
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -201,14 +203,16 @@ namespace passwdhk
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void Postchange_Browse_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.InitialDirectory = "c:\\";
+            OpenFileDialog openFileDialog1 = new OpenFileDialog
+            {
+                InitialDirectory = "c:\\",
 
-            openFileDialog1.Filter = "All files (*.*)|*.*";
-            openFileDialog1.FilterIndex = 2;
-            openFileDialog1.RestoreDirectory = true;
+                Filter = "All files (*.*)|*.*",
+                FilterIndex = 2,
+                RestoreDirectory = true
+            };
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -216,23 +220,13 @@ namespace passwdhk
             }
         }
 
-        private void about_button_Click(object sender, EventArgs e)
+        private void About_Button_Click(object sender, EventArgs e)
         {
             Aboutbox neform = new Aboutbox();
             neform.ShowDialog();
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            FolderBrowserDialog browseFolder = new FolderBrowserDialog();
-            browseFolder.SelectedPath = this.working_dir_t.Text;
-            if (browseFolder.ShowDialog() == DialogResult.OK)
-            {
-                this.working_dir_t.Text = browseFolder.SelectedPath;
-            }
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Project_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             try
             {
@@ -248,18 +242,18 @@ namespace passwdhk
         {
             // Change the color of the link text by setting LinkVisited 
             // to true.
-            linkLabel1.LinkVisited = true;
+            Project_link.LinkVisited = true;
             //Call the Process.Start method to open the default browser 
             //with a URL:
             System.Diagnostics.Process.Start("https://sf.net/projects/passwdhk");
         }
 
-        private void exit_button_Click(object sender, EventArgs e)
+        private void Exit_Button_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void apply_button_Click(object sender, EventArgs e)
+        private void Apply_Button_Click(object sender, EventArgs e)
         {
             RegistryKey rootKey = Registry.LocalMachine;
             try
@@ -351,13 +345,17 @@ namespace passwdhk
                 NotifyPkgsAL.AddRange(NotifyPkgsArray);
                 if (enable_passwdhk_c.Checked)
                 {
-                    NotifyPkgsAL.Add(phkRegDLLName);
+                    if (NotifyPkgsAL.Contains(phkRegDLLName) == false)
+                    {
+                        NotifyPkgsAL.Add(phkRegDLLName);
+                        NotifyKey.SetValue(phkRegNotifyName, NotifyPkgsAL.ToArray(typeof(string)));
+                    }
                 }
                 else
                 {
                     NotifyPkgsAL.Remove(phkRegDLLName);
+                    NotifyKey.SetValue(phkRegNotifyName, NotifyPkgsAL.ToArray(typeof(string)));
                 }
-                NotifyKey.SetValue(phkRegNotifyName, NotifyPkgsAL.ToArray(typeof(string)));
             }
             catch (Exception ex)
             {
@@ -365,14 +363,16 @@ namespace passwdhk
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Logging_Browse_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.InitialDirectory = "c:\\";
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog
+            {
+                InitialDirectory = "c:\\",
 
-            saveFileDialog1.Filter = "All files (*.*)|*.*";
-            saveFileDialog1.FilterIndex = 2;
-            saveFileDialog1.RestoreDirectory = true;
+                Filter = "All files (*.*)|*.*",
+                FilterIndex = 2,
+                RestoreDirectory = true
+            };
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -380,9 +380,20 @@ namespace passwdhk
             }
         }
 
-        private void cancel_button_Click(object sender, EventArgs e)
+        private void Cancel_Button_Click(object sender, EventArgs e)
         {
             LoadFromRegistry();
+        }
+
+        private void Workdir_Browse_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog FolderBrowserDialog1 = new FolderBrowserDialog();
+            FolderBrowserDialog1.SelectedPath = this.working_dir_t.Text;
+
+            if (FolderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                this.working_dir_t.Text = FolderBrowserDialog1.SelectedPath;
+            }
         }
     }
 }
