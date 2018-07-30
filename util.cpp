@@ -186,6 +186,7 @@ int pshk_exec_prog(int option, PUNICODE_STRING username, PUNICODE_STRING passwor
 	wchar_t *passwordCopy, *passwordCopy2;
 	wchar_t *bufferFormat = L"\"%s\" %s %s %s";
 	int wait;
+	bool skipComp;
 	int ret = PSHK_SUCCESS;
 	DWORD_PTR bufferChars, bufferBytes;
 	DWORD exitCode = 0;
@@ -199,10 +200,12 @@ int pshk_exec_prog(int option, PUNICODE_STRING username, PUNICODE_STRING passwor
 		prog = pshk_config.preChangeProg;
 		args = pshk_config.preChangeProgArgs;
 		wait = pshk_config.preChangeProgWait;
+		skipComp = pshk_config.preChangeProgSkipComp;
 	} else if (option == PSHK_POST_CHANGE) {
 		prog = pshk_config.postChangeProg;
 		args = pshk_config.postChangeProgArgs;
 		wait = pshk_config.postChangeProgWait;
+		skipComp = pshk_config.postChangeProgSkipComp;
 	} else // Unknown option
 		return PSHK_FAILURE;
 
@@ -220,6 +223,19 @@ int pshk_exec_prog(int option, PUNICODE_STRING username, PUNICODE_STRING passwor
 	// Copy buffers to ensure null-termination
 	usernameCopy = alloc_copy(username->Buffer, username->Length);
 	passwordCopy = alloc_copy(password->Buffer, password->Length);
+
+	// Skip accounts with $ at end.  These should be computer accounts.
+	if (skipComp)
+	{
+		if (wcscmp(L"$", &usernameCopy[wcslen(usernameCopy)-1]) == 0)
+		{
+			free(usernameCopy);
+			SecureZeroMemory(passwordCopy, wcslen(passwordCopy) * sizeof(wchar_t));
+			free(passwordCopy);
+			return PSHK_SUCCESS;
+		}
+	}
+
 	if (usernameCopy != NULL && passwordCopy != NULL) {
 		// URL encode username and password
 		if (pshk_config.urlencode == TRUE) {
