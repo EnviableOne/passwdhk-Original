@@ -27,8 +27,6 @@ namespace passwdhk
                                                     "environment",
                                                     "preChangeProgWait",
                                                     "postChangeProgWait",
-                                                    "preChangeProgSkipComp",
-                                                    "postChangeProgSkipComp",
                                                     "preChangeProg",
                                                     "preChangeProgArgs",
                                                     "postChangeProg",
