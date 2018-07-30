@@ -35,12 +35,14 @@ namespace passwdhk
             this.prechange_program_t = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.preChangeSkipComp = new System.Windows.Forms.CheckBox();
             this.prechange_prog_button = new System.Windows.Forms.Button();
             this.prechange_waittime_n = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.prechange_arguments_t = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.postChangeSkipComp = new System.Windows.Forms.CheckBox();
             this.postchange_prog_button = new System.Windows.Forms.Button();
             this.postchange_waittime_n = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
@@ -100,7 +102,7 @@ namespace passwdhk
             this.exit_button.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.exit_button.Name = "exit_button";
             this.exit_button.Size = new System.Drawing.Size(200, 55);
-            this.exit_button.TabIndex = 2;
+            this.exit_button.TabIndex = 3;
             this.exit_button.Text = "Exit";
             this.exit_button.UseVisualStyleBackColor = true;
             this.exit_button.Click += new System.EventHandler(this.Exit_Button_Click);
@@ -111,7 +113,7 @@ namespace passwdhk
             this.about_button.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.about_button.Name = "about_button";
             this.about_button.Size = new System.Drawing.Size(200, 55);
-            this.about_button.TabIndex = 1;
+            this.about_button.TabIndex = 2;
             this.about_button.Text = "About";
             this.about_button.UseVisualStyleBackColor = true;
             this.about_button.Click += new System.EventHandler(this.About_Button_Click);
@@ -136,6 +138,7 @@ namespace passwdhk
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.preChangeSkipComp);
             this.groupBox1.Controls.Add(this.prechange_prog_button);
             this.groupBox1.Controls.Add(this.prechange_waittime_n);
             this.groupBox1.Controls.Add(this.label3);
@@ -148,9 +151,19 @@ namespace passwdhk
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.groupBox1.Size = new System.Drawing.Size(1760, 224);
-            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pre-change";
+            // 
+            // preChangeSkipComp
+            // 
+            this.preChangeSkipComp.AutoSize = true;
+            this.preChangeSkipComp.Location = new System.Drawing.Point(549, 162);
+            this.preChangeSkipComp.Name = "preChangeSkipComp";
+            this.preChangeSkipComp.Size = new System.Drawing.Size(364, 36);
+            this.preChangeSkipComp.TabIndex = 9;
+            this.preChangeSkipComp.Text = "Skip Computer Accounts";
+            this.preChangeSkipComp.UseVisualStyleBackColor = true;
             // 
             // prechange_prog_button
             // 
@@ -211,6 +224,7 @@ namespace passwdhk
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.postChangeSkipComp);
             this.groupBox2.Controls.Add(this.postchange_prog_button);
             this.groupBox2.Controls.Add(this.postchange_waittime_n);
             this.groupBox2.Controls.Add(this.label4);
@@ -223,9 +237,19 @@ namespace passwdhk
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.groupBox2.Size = new System.Drawing.Size(1760, 234);
-            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Post-change";
+            // 
+            // postChangeSkipComp
+            // 
+            this.postChangeSkipComp.AutoSize = true;
+            this.postChangeSkipComp.Location = new System.Drawing.Point(549, 168);
+            this.postChangeSkipComp.Name = "postChangeSkipComp";
+            this.postChangeSkipComp.Size = new System.Drawing.Size(364, 36);
+            this.postChangeSkipComp.TabIndex = 9;
+            this.postChangeSkipComp.Text = "Skip Computer Accounts";
+            this.postChangeSkipComp.UseVisualStyleBackColor = true;
             // 
             // postchange_prog_button
             // 
@@ -316,7 +340,7 @@ namespace passwdhk
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.groupBox3.Size = new System.Drawing.Size(1760, 167);
-            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Logging";
             // 
@@ -471,7 +495,7 @@ namespace passwdhk
             this.label12.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(178, 32);
-            this.label12.TabIndex = 12;
+            this.label12.TabIndex = 9;
             this.label12.Text = "CPU Priority:";
             // 
             // groupBox4
@@ -483,7 +507,7 @@ namespace passwdhk
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.groupBox4.Size = new System.Drawing.Size(541, 107);
-            this.groupBox4.TabIndex = 7;
+            this.groupBox4.TabIndex = 8;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Password Escaping";
             // 
@@ -494,7 +518,7 @@ namespace passwdhk
             this.redirect_output_c.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.redirect_output_c.Name = "redirect_output_c";
             this.redirect_output_c.Size = new System.Drawing.Size(252, 36);
-            this.redirect_output_c.TabIndex = 9;
+            this.redirect_output_c.TabIndex = 11;
             this.redirect_output_c.Text = "Redirect Output";
             this.redirect_output_c.UseVisualStyleBackColor = true;
             // 
@@ -515,7 +539,7 @@ namespace passwdhk
             this.Project_link.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.Project_link.Name = "Project_link";
             this.Project_link.Size = new System.Drawing.Size(421, 32);
-            this.Project_link.TabIndex = 3;
+            this.Project_link.TabIndex = 4;
             this.Project_link.TabStop = true;
             this.Project_link.Text = "https://sf.net/projects/passwdhk/";
             this.Project_link.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Project_LinkClicked);
@@ -565,7 +589,7 @@ namespace passwdhk
             this.priority_d.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.priority_d.Name = "priority_d";
             this.priority_d.Size = new System.Drawing.Size(164, 39);
-            this.priority_d.TabIndex = 16;
+            this.priority_d.TabIndex = 10;
             // 
             // cancel_button
             // 
@@ -574,7 +598,7 @@ namespace passwdhk
             this.cancel_button.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.cancel_button.Name = "cancel_button";
             this.cancel_button.Size = new System.Drawing.Size(200, 55);
-            this.cancel_button.TabIndex = 17;
+            this.cancel_button.TabIndex = 1;
             this.cancel_button.Text = "Cancel";
             this.cancel_button.UseVisualStyleBackColor = true;
             this.cancel_button.Click += new System.EventHandler(this.Cancel_Button_Click);
@@ -674,6 +698,8 @@ namespace passwdhk
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox priority_d;
         private System.Windows.Forms.Button cancel_button;
+        private System.Windows.Forms.CheckBox preChangeSkipComp;
+        private System.Windows.Forms.CheckBox postChangeSkipComp;
     }
 }
 

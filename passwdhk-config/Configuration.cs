@@ -87,6 +87,26 @@ namespace passwdhk
                             case "workingdir":
                                 this.working_dir_t.Text = phkkey.GetValue(i).ToString();
                                 break;
+                            case "preChangeProgSkipComp":
+                                if (phkkey.GetValue(i).ToString().ToLower() == "true")
+                                {
+                                    this.preChangeSkipComp.Checked = true;
+                                }
+                                else
+                                {
+                                    this.preChangeSkipComp.Checked = false;
+                                }
+                                break;
+                            case "postChangeProgSkipComp":
+                                if (phkkey.GetValue(i).ToString().ToLower() == "true")
+                                {
+                                    this.postChangeSkipComp.Checked = true;
+                                }
+                                else
+                                {
+                                    this.postChangeSkipComp.Checked = false;
+                                }
+                                break;
                             case "urlencode":
                                 if (phkkey.GetValue(i).ToString().ToLower() == "true")
                                 {
@@ -301,6 +321,22 @@ namespace passwdhk
                         rootKey.SetValue("priority", "1");
                         break;
                 }
+                if (this.preChangeSkipComp.Checked)
+                {
+                    rootKey.SetValue("preChangeProgSkipComp", "true");
+                }
+                else
+                {
+                    rootKey.SetValue("preChangeProgSkipComp", "false");
+                }
+                if (this.postChangeSkipComp.Checked)
+                {
+                    rootKey.SetValue("postChangeProgSkipComp", "true");
+                }
+                else
+                {
+                    rootKey.SetValue("postChangeProgSkipComp", "false");
+                }
                 if (this.password_urlencode_c.Checked)
                 {
                     rootKey.SetValue("urlencode", "true");
@@ -387,8 +423,10 @@ namespace passwdhk
 
         private void Workdir_Browse_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog FolderBrowserDialog1 = new FolderBrowserDialog();
-            FolderBrowserDialog1.SelectedPath = this.working_dir_t.Text;
+            FolderBrowserDialog FolderBrowserDialog1 = new FolderBrowserDialog
+            {
+                SelectedPath = this.working_dir_t.Text
+            };
 
             if (FolderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
