@@ -99,7 +99,7 @@ namespace passwdhk
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(722, 41);
             this.labelVersion.TabIndex = 0;
-            this.labelVersion.Text = "1.1";
+            this.labelVersion.Text = "1.2";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelCopyright
