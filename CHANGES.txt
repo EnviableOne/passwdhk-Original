@@ -1,3 +1,8 @@
+Changes (31 Jul 2018):
+ - Fix .NET version support
+ - Add Skip Computer Account Feature
+ - Add VC++ Runtime installer to setup
+
 Changes (14 Jul 2018):
  - Add version information to DLL and Driver EXE.
  - Add icon to Configurator.
